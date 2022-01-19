@@ -33,9 +33,8 @@ public class Cipher
         string newMessage = string.Empty;
         foreach (char c in message)
         {
-            //TODO: The following copies the message character by character.
-            //      Instead, you should to encrypt each character using the shift
-            newMessage += c;
+            this.shift = 5;
+            newMessage += (char)(c+5);
         }
         return newMessage;
     }

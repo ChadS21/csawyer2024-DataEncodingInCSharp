@@ -22,8 +22,7 @@ public class Cipher
         string newMessage = string.Empty;
         foreach (char c in message)
         {
-            this.shift = 5;
-            newMessage += (char)(c-this.shift);
+            newMessage += (char)(c-shift);
         }
         return newMessage;
     }
@@ -38,8 +37,7 @@ public class Cipher
         string newMessage = string.Empty;
         foreach (char c in message)
         {
-            this.shift = 5;
-            newMessage += (char)(c+this.shift);
+            newMessage += (char)(c+shift);
         }
         return newMessage;
     }

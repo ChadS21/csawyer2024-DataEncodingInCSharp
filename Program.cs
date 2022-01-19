@@ -6,16 +6,24 @@ namespace csawyer2024_DataEncodingInCSharp
     {
         static void Main(string[] args)
         {
-            Cipher cipher;
-            cipher = new Cipher(5);
-            
-            string encrypted;
-            encrypted = cipher.Encrypt("rosebud");
-            Console.WriteLine($"The encrypted message is: '{encrypted}'");
+            string filepath = args[0];
+            Console.WriteLine($"Loading '{filepath}'.");
 
+            string message;
+            message = System.IO.File.ReadAllText(filepath);
+            Console.WriteLine($"The encrypted message is {message}");
+
+            int shift;
+            shift = 1;
+            while (shift <= 10)
+            {
+            Cipher cipher;
+            cipher = new Cipher(shift);
             string decrypted;
-            decrypted = cipher.Decrypt(encrypted);
-            Console.WriteLine($"The encrypted message is: '{decrypted}'");
+            decrypted = cipher.Decrypt(message);
+            Console.WriteLine($"The decrypted message is: '{decrypted}'");
+            shift += 1;
+            }
         }
     }
 }
